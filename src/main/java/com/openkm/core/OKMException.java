@@ -1,7 +1,7 @@
 /**
  * OpenKM, Open Document Management System (http://www.openkm.com)
- * Copyright (c) 2006-2018  Paco Avila & Josep Llort
  * <p>
+ * Copyright (c) 2006-2017  Paco Avila & Josep Llort
  * No bytes were intentionally harmed during the development of this application.
  * <p>
  * This program is free software; you can redistribute it and/or modify
@@ -18,33 +18,44 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
+package com.openkm.core;
 
-package com.openkm.automation;
-
-import com.openkm.core.OKMException;
 import com.openkm.frontend.client.constants.service.ErrorCode;
 
-public class AutomationException  extends OKMException {
+/**
+ * This class represents the root of the hierarchy of the exceptions defined in OpenKM.
+ * <p>
+ * All subclasses MUST set their error code on instantiation.
+ */
+public class OKMException extends Exception {
 	private static final long serialVersionUID = 1L;
+	private String errorCode = ErrorCode.CAUSE_OKMGeneral;
 
-	public AutomationException() {
+	public OKMException() {
 		super();
-		setErrorCode(ErrorCode.CAUSE_Automation);
 	}
 
-	public AutomationException(String message) {
+	public OKMException(String message) {
 		super(message);
-		setErrorCode(ErrorCode.CAUSE_Automation);
 	}
 
-	public AutomationException(String message, Throwable cause) {
+	public OKMException(String message, Throwable cause) {
 		super(message, cause);
-		setErrorCode(ErrorCode.CAUSE_Automation);
 	}
 
-	public AutomationException(Throwable arg0) {
-		super(arg0);
-		setErrorCode(ErrorCode.CAUSE_Automation);
+	public OKMException(Throwable cause) {
+		super(cause);
+	}
+
+	public OKMException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
+	}
+
+	public String getErrorCode() {
+		return errorCode;
+	}
+
+	protected void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
 	}
 }
-

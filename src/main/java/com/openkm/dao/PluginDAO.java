@@ -18,35 +18,49 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
+package com.openkm.dao;
 
-package com.openkm.automation.validation;
-
-import com.openkm.automation.AutomationUtils;
-import com.openkm.automation.Validation;
-import com.openkm.spring.PrincipalUtils;
+import com.openkm.core.DatabaseException;
+import com.openkm.dao.bean.Plugin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
-
 /**
- * UserHasRole
- *
- * @author jllort
- *
+ * @author agallego
  */
-public class UserHasRole implements Validation {
-	private static Logger log = LoggerFactory.getLogger(UserHasRole.class);
+public class PluginDAO extends GenericDAO<Plugin, String> {
+	private static Logger log = LoggerFactory.getLogger(PluginDAO.class);
+	private static PluginDAO single = new PluginDAO();
 
-	@Override
-	public boolean isValid(HashMap<String, Object> env, Object... params) {
-		String role = AutomationUtils.getString(0, params);
+	private PluginDAO() {
+	}
+
+	public static PluginDAO getInstance() {
+		return single;
+	}
+
+	/**
+	 * Change Status plugin.
+	 *
+	 * @param pluginId
+	 * @throws DatabaseException
+	 */
+	public void changeStatus(String pluginId) throws DatabaseException {
+		log.debug("changeStatus({})", pluginId);
+		Plugin plugin;
 
 		try {
-			return PrincipalUtils.hasRole(role);
-		} catch (Exception e) {
-			log.error(e.getMessage(), e);
-			return false;
+			plugin = this.findByPk(pluginId);
+			plugin.setActive(!plugin.getActive());
+			update(plugin);
+		} catch (DatabaseException ex) {
+			// In not in bbdd active==true so if add new active=false
+			plugin = new Plugin();
+			plugin.setClassName(pluginId);
+			plugin.setActive(false);
+			create(plugin);
 		}
+
+		log.debug("changeStatus: void");
 	}
 }

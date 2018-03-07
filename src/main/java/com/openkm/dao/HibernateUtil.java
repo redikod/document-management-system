@@ -112,7 +112,6 @@ public class HibernateUtil {
 		cfg.addAnnotatedClass(AutomationRule.class);
 		cfg.addAnnotatedClass(AutomationValidation.class);
 		cfg.addAnnotatedClass(AutomationAction.class);
-		cfg.addAnnotatedClass(AutomationMetadata.class);
 
 		// New Persistence Model
 		cfg.addAnnotatedClass(NodeBase.class);

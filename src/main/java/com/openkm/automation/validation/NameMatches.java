@@ -25,29 +25,32 @@ import java.util.Map;
 
 import com.openkm.automation.AutomationUtils;
 import com.openkm.automation.Validation;
-import com.openkm.dao.NodeBaseDAO;
 import com.openkm.dao.bean.Automation;
+import com.openkm.dao.bean.NodeDocument;
+import com.openkm.dao.bean.NodeFolder;
+import com.openkm.dao.bean.NodeMail;
 
 import net.xeoh.plugins.base.annotations.PluginImplementation;
 
-/**
- * HasKeyword
- *
- * @author jllort
- */
 @PluginImplementation
-public class HasKeyword implements Validation {
+public class NameMatches implements Validation {
 
 	@Override
 	public boolean isValid(Map<String, Object> env, Object... params) throws Exception {
-		String keyword = AutomationUtils.getString(0, params);
-		String uuid = AutomationUtils.getUuid(env);
+		String str = AutomationUtils.getString(0, params);
+		Object node = AutomationUtils.getNode(env);
 
-		if (uuid != null && !uuid.isEmpty()) {
-			return NodeBaseDAO.getInstance().hasKeyword(uuid, keyword);
-		} else {
-			return false;
+		if (node != null) {
+			if (node instanceof NodeDocument) {
+				return ((NodeDocument) node).getName().matches(str);
+			} else if (node instanceof NodeFolder) {
+				return ((NodeFolder) node).getName().matches(str);
+			} else if (node instanceof NodeMail) {
+				return ((NodeMail) node).getName().matches(str);
+			} 
 		}
+
+		return false;
 	}
 
 	@Override
@@ -57,12 +60,12 @@ public class HasKeyword implements Validation {
 
 	@Override
 	public boolean hasPre() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public String getName() {
-		return "HasKeyword";
+		return "NameMatches";
 	}
 
 	@Override
@@ -77,7 +80,7 @@ public class HasKeyword implements Validation {
 
 	@Override
 	public String getParamDesc00() {
-		return "Keyword";
+		return "String";
 	}
 
 	@Override

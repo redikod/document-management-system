@@ -4,6 +4,7 @@ import com.openkm.core.AccessDeniedException;
 import com.openkm.core.Config;
 import com.openkm.core.HttpSessionManager;
 import com.openkm.util.UserActivity;
+import com.openkm.util.WebUtils;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -44,6 +45,13 @@ public class BaseServlet extends HttpServlet {
 		HttpSessionManager.getInstance().update(request.getSession().getId());
 	}
 
+	/**
+	 * Check if this is a POST request
+	 */
+	public boolean isPost(HttpServletRequest request) {
+		return WebUtils.METHOD_POST.equals(request.getMethod());
+	}
+	
 	/**
 	 * Test if an user can access to administration
 	 */

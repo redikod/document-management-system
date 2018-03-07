@@ -1,6 +1,6 @@
 /**
  * OpenKM, Open Document Management System (http://www.openkm.com)
- * Copyright (c) 2006-2017  Paco Avila & Josep Llort
+ * Copyright (c) 2006-2017 Paco Avila & Josep Llort
  * <p>
  * No bytes were intentionally harmed during the development of this application.
  * <p>
@@ -11,56 +11,38 @@
  * <p>
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  * <p>
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
-
 package com.openkm.dao.bean;
 
 import org.hibernate.annotations.Type;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * @author agallego
+ */
 @Entity
-@Table(name = "OKM_AUTO_VALIDATION")
-public class AutomationValidation implements Serializable {
+@Table(name = "OKM_PLUGIN")
+public class Plugin implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "AVL_ID")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-
-	@Column(name = "AVL_CLASS_NAME", length = 255)
+	@Column(name = "PLG_CLASS")
 	private String className;
 
-	@Column(name = "AVL_ORDER")
-	private int order;
-
-	@ElementCollection
-	@Column(name = "AVP_PARAM")
-	@OrderColumn(name = "AVP_ORDER")
-	@CollectionTable(name = "OKM_AUTO_VALIDATION_PARAMS", joinColumns = {@JoinColumn(name = "AVP_VALIDATION")})
-	private List<String> params = new ArrayList<String>();
-
-	@Column(name = "AVL_ACTIVE", nullable = false)
+	@Column(name = "PLG_ACTIVE")
 	@Type(type = "true_false")
 	private Boolean active = Boolean.FALSE;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getClassName() {
 		return className;
@@ -70,22 +52,6 @@ public class AutomationValidation implements Serializable {
 		this.className = className;
 	}
 
-	public int getOrder() {
-		return order;
-	}
-
-	public void setOrder(int order) {
-		this.order = order;
-	}
-
-	public List<String> getParams() {
-		return params;
-	}
-
-	public void setParams(List<String> params) {
-		this.params = params;
-	}
-
 	public Boolean getActive() {
 		if (active == null) {
 			return false;
@@ -93,17 +59,14 @@ public class AutomationValidation implements Serializable {
 		return active;
 	}
 
-	public void setActive(boolean active) {
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
 
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("{");
-		sb.append("id=").append(id);
-		sb.append(", className=").append(className);
-		sb.append(", order=").append(order);
-		sb.append(", params=").append(params);
+		sb.append("className=").append(className);
 		sb.append(", active=").append(active);
 		sb.append("}");
 		return sb.toString();
