@@ -7,23 +7,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <link rel="Shortcut icon" href="favicon.ico"/>
-  <link rel="stylesheet" type="text/css" href="../css/dataTables-1.10.10/jquery.dataTables-1.10.10.min.css"/>
   <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  <script type="text/javascript" src="../js/utils.js"></script>
   <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
-  <script type="text/javascript" src="../js/jquery.dataTables-1.10.10.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $('#results').dataTable({
-        "bStateSave": true,
-        "iDisplayLength": 20,
-        "lengthMenu": [[10, 15, 20], [10, 15, 20]],
-        "fnDrawCallback": function (oSettings) {
-          dataTableAddRows(this, oSettings);
-        }
-      });
-    });
-  </script>
   <title>Automation registered list</title>
 </head>
 <body>
@@ -49,8 +34,7 @@
         </li>
       </ul>
       <br/>
-      <div style="width:95%; margin-left:auto; margin-right:auto;">
-        <table id="results" class="results">
+      <table class="results" width="70%">
           <thead>
             <tr>
               <th colspan="13">Automation registered plugins</th>
@@ -177,8 +161,7 @@
               <td>${action.getParamDesc02()}</td>
             </tr>
           </c:forEach>
-        </table>
-      </div>
+      </table>
     </c:when>
     <c:otherwise>
       <div class="error"><h3>Only admin users allowed</h3></div>

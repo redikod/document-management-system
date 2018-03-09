@@ -161,7 +161,7 @@
       <c:if test="${!empty pathNotFound && pathNotFound == true}">
         <div class="error"><h3>Rule is associated with a node which no longer exists.</h3></div>
       </c:if>
-      <table class="results-old" width="70%">
+      <table class="results" width="70%">
         <thead>
           <tr class="fuzzy">
             <td colspan="7" align="left">

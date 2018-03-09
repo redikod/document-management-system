@@ -61,3 +61,7 @@ table.form {
 	border: 1px solid #707090;
 	background-color: #eeeeee;
 }
+
+.chosen-container {
+	text-align: left
+}

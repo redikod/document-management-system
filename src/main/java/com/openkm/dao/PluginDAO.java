@@ -26,7 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author agallego
+ * @author sochoa
  */
 public class PluginDAO extends GenericDAO<Plugin, String> {
 	private static Logger log = LoggerFactory.getLogger(PluginDAO.class);

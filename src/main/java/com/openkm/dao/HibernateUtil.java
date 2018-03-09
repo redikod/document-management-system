@@ -126,6 +126,7 @@ public class HibernateUtil {
 
 		//..
 		cfg.addAnnotatedClass(MailImportError.class);
+		cfg.addAnnotatedClass(Plugin.class);
 		
 		return cfg;
 	}
