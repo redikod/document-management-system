@@ -28,6 +28,9 @@
 
   <!-- only build for Chrome -->
   <!-- <set-property name="user.agent" value="safari" /> -->
+  
+  <!-- Compile for IE only -->
+  <!--  <set-property name="user.agent" value="ie8"/>  -->
 
   <!-- Compile debug levels gwt-log -->
   <extend-property name="log_level" values="DEBUG" />
