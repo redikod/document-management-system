@@ -129,6 +129,11 @@
           <img src="img/toolbar/utilities.png">
          </a>
       </li>
+      <li>
+        <a target="frame" href="utilities_yz.jsp" title="Utilities YZ">
+          <img src="img/toolbar/agt_utilities.png" width="30px" height="30px">
+         </a>
+      </li>
     </c:if>
     <script type="text/javascript">
       // Identify if being loaded inside an iframe

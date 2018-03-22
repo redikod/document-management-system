@@ -67,10 +67,21 @@ public class Customization {
 		if (uuidList.contains("44f94470-d097-11df-bd3b-0800200c9a66")) {
 			extensions.add(new TabWorkspaceExample());
 		}
-
+		
 		if (uuidList.contains("4d245f30-ef47-11df-98cf-0800200c9a66")) {
 			extensions.add(new ToolBarBoxExample().getToolBarBox());
 		}
+		
+		/**
+		 * Newly created custom tab by Yousuf Zaman
+		 */
+		if (uuidList.contains("45419696-ef47-11df-98cf-0800200c9a66")) {
+			extensions.add(new TabHTMLWorkspace());
+		}
+		if (uuidList.contains("01419696-d097-11df-bd3b-0800200c9a66")) {
+			extensions.add(new TabFolderYZ());
+		}
+		
 
 		// extensions.add(new MainMenuExample().getNewMenu());
 		// extensions.add(new HandlersTest());
