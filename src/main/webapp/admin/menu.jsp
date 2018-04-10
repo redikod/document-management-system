@@ -130,8 +130,8 @@
          </a>
       </li>
       <li>
-        <a target="frame" href="utilities_yz.jsp" title="Utilities YZ">
-          <img src="img/toolbar/agt_utilities.png" width="30px" height="30px">
+        <a target="frame" href="utilities_yz.jsp" title="Masoda">
+          <img src="img/toolbar/masoda_logo.png" width="30px" height="30px">
          </a>
       </li>
     </c:if>

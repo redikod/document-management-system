@@ -18,7 +18,7 @@ public class TabHTMLWorkspace extends TabWorkspaceExtension{
 	 */
 	public TabHTMLWorkspace() {
 		
-		sampleHtml = "<h2>Welcome to HTML Custom Workspace</h2><\br>";
+		sampleHtml = "<h2>Welcome to MASODA HTML Custom Workspace</h2><\br>";
 		sampleHtml += "<strong>This page content can be modified and implemented according to requirement</strong><\br>";
 		sampleHtml += "<i>by: Yousuf Zaman</i>";
 		
@@ -26,7 +26,7 @@ public class TabHTMLWorkspace extends TabWorkspaceExtension{
 		vPanel.add(new HTML(sampleHtml));
 		vPanel.setStyleName("okm-Input");
 		try{
-			tabName = "HTML Panel YZ";//ConfigDAO.getString(TAB_NAME_TAG, "DefaultHTMLPanel");
+			tabName = "MASODA Panel";//ConfigDAO.getString(TAB_NAME_TAG, "DefaultHTMLPanel");
 		} catch(Exception ex){
 			System.out.println("TabHTMLWorkspaceYZ: "+ex.getMessage());
 		}

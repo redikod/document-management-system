@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="Shortcut icon" href="favicon.ico" />
   <link rel="stylesheet" href="css/style.css" type="text/css" />
-  <title>Utilities</title>
+  <title>MASODA Utilities</title>
 </head>
 <body>
   <c:set var="isAdmin"><%=BaseServlet.isMultipleInstancesAdmin(request)%></c:set>
@@ -18,7 +18,7 @@
     <c:when test="${isAdmin}">
       <ul id="breadcrumb">
         <li class="path">
-          <a href="utilities.jsp">Utilities</a>
+          <a href="utilities_yz.jsp">MASODA Utilities</a>
         </li>
       </ul>
       <br/>
@@ -41,7 +41,7 @@
       </center>
     </c:when>
     <c:otherwise>
-      <div class="error"><h3>Only admin users allowed</h3></div>
+      <div class="error"><h3>Only MASODA users allowed</h3></div>
     </c:otherwise>
   </c:choose>
 </body>
