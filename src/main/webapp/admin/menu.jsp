@@ -130,7 +130,12 @@
          </a>
       </li>
       <li>
-        <a target="frame" href="utilities_yz.jsp" title="Masoda">
+        <a target="frame" href="masoda_orgchart.jsp" title="Masoda OrgChard">
+          <img src="img/toolbar/masoda_logo.png" width="30px" height="30px">
+         </a>
+      </li>
+      <li>
+        <a target="frame" href="utilities_yz.jsp" title="MASODA">
           <img src="img/toolbar/masoda_logo.png" width="30px" height="30px">
          </a>
       </li>
